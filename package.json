@@ -1,0 +1,77 @@
+{
+  "name": "mms-ui",
+  "version": "1.0.1",
+  "description": "可视化组件库",
+  "main": "lib/mms-ui.es.js",
+  "scripts": {
+    "dev": " cross-env rollup -wc rollup.config.dev.ts",
+    "build": "cross-env rollup -c rollup.config.dev.ts",
+    "build:pro": "cross-env rollup -c rollup.config.prod.ts",
+    "lint": "eslint --ext js,ts,tsx src"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vajsp/myView.git"
+  },
+  "author": "mmq91@foxmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vajsp/myView/issues"
+  },
+  "homepage": "https://github.com/vajsp/myView#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/react": "^16.9.13",
+    "@types/react-dom": "16.9.4",
+    "autoprefixer": "^8.0.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-vue": "^7.1.0",
+    "husky": "^4.2.1",
+    "less": "^3.12.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "2.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "4.0.3",
+    "rollup": "^2.16.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^3.1.2",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*.{js,jsx,mjs,ts,tsx}": [
+      "npm run lint",
+      "node_modules/.bin/prettier --write",
+      "node_modules/.bin/eslint --fix",
+      "git add"
+    ],
+    "src/*.{css,scss,less,json,html,md,markdown}": [
+      "node_modules/.bin/prettier --write",
+      "git add"
+    ]
+  }
+}
